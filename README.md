@@ -1,0 +1,2 @@
+# nye-progkorny
+to learn
