@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Családtagok</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <div th:insert="~{shared/navBar :: navbar}"></div>
+
+    <div class="col-md-12">
+        <div class="card">
+            <div>
+                <h5> Családtagok</h5>
+                <a class="nav-link"
+                   th:href="@{/family_members/create.html}">Adj hozzá új családtagot</a>
+
+            </div>
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Létrehozta</th>
+                    <th scope="col">Vezetéknév</th>
+                    <th scope="col">Keresztnév</th>
+                    <th scope="col">Kép</th>
+                    <th scope="col">Város</th>
+                    <th scope="col">Neme</th>
+                    <th scope="col">Született</th>
+                    <th scope="col">Hely</th>
+                    <th scope="col">Halál dátum</th>
+                    <th scope="col">Létrehozva</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="member : ${members}">
+                    <th scope="row" th:text="${member.id}" >  </th>
+                    <td th:text="${member.user_id}">  </td>
+                    <td th:text="${member.first_name}">  </td>
+                    <td th:text="${member.last_name}" >  </td>
+                    <td> <img src="" style="height:40px;"> </td>
+                    <td th:text="${member.city}">  </td>
+                    <td th:text="${member.gender}">  </td>
+                    <td th:text="${member.birth_date}" >  </td>
+                    <td th:text="${member.birth_place}" >  </td>
+                    <td th:text="${member.death_date}" >  </td>
+                    <td th:text="${member.created}" >  </td>
+                    <td>
+                        <a href="#" th:href="@{/family_members/edit/{id}(id=${member.id})}" class="btn btn-info">Mód.</a>
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Kapcsolatok</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{{ url('relationship/add_parent/'.$member->id) }}">Szülő hozáadása</a></li>
+                            <li><a class="dropdown-item" href="{{ url('relationship/add_children/'.$member->id) }}">Gyerek hozzáadása</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                        </ul>
+                        <a href="{{ url('softdelete/familymember/'.$member->id) }}" class="btn btn-danger">Töröl</a>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Családtag módosítás </title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+<div th:insert="~{shared/navBar :: navbar}"></div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header"> Családtag módosító adatlap </div>
+        <div class="card-body">
+            <form th:action="@{/family_members/update}" method="post" >
+                <div class="mb-3 row">
+                    <div class="col-md-3 mb-2">
+                        <label for="validationDefault01">Vezetéknév</label>
+                        <input type="text" name="first_name"
+                               class="form-control"
+                               id="validationDefault01" required
+                               th:value="${familyMember.first_name}"/>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label for="validationDefault11">Vezetéknév</label>
+                        <input type="hidden" name="id"
+                               class="form-control"
+                               id="validationDefault11" required
+                               th:value="${familyMember.id}"/>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label for="validationDefault02">Keresztnév</label>
+                        <input type="text" name="last_name"
+                               class="form-control"
+                               id="validationDefault02" required
+                               th:value="${familyMember.last_name}"/>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label for="validationDefault03">Születési dátum</label>
+                        <input type="date" name="birth_date"
+                               class="form-control"
+                               id="validationDefault03" required
+                               th:field="${familyMember.birth_date}"/>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label for="validationDefault04">Születési hely</label>
+                        <input type="text" name="birth_place"
+                               class="form-control"
+                               id="validationDefault04" required
+                               th:value="${familyMember.birth_place}"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-md-3 mb-2">
+                        <label for="validationDefault04">Halál dátum</label>
+                        <input type="date" name="death_date"
+                               class="form-control"
+                               id="validationDefault05"
+                               th:field="${familyMember.death_date}"/>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label for="validationDefault06">Lakik</label>
+                        <input type="text" name="city"
+                               class="form-control"
+                               id="validationDefault06"
+                               th:value="${familyMember.city}"/>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <label for="validationDefault08">Kép kiválasztása</label>
+                        <input type="file" name="member_image"
+                               class="form-control"
+                               id="validationDefault08"
+                               th:value="${familyMember.member_image}"/>
+                    </div>
+
+                    <div class="col-md-2 mb-2">
+                        <label for="validationDefault09">Neme</label>
+                        <select id="validationDefault09" name="gender"
+                                class="form-select" type="text" th:value="${familyMember.gender}">
+                            <option selected>Férfi</option>
+                            <option>Nő</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Módosít</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+
+</body>
+</html>
