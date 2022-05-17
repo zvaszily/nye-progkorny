@@ -42,15 +42,15 @@
                 <tbody>
                 <tr th:each="member : ${members}">
                     <th scope="row" th:text="${member.id}" >  </th>
-                    <td th:text="${member.user_id}">  </td>
-                    <td th:text="${member.first_name}">  </td>
-                    <td th:text="${member.last_name}" >  </td>
+                    <td th:text="${member.userId}">  </td>
+                    <td th:text="${member.firstName}">  </td>
+                    <td th:text="${member.lastName}" >  </td>
                     <td> <img src="" style="height:40px;"> </td>
                     <td th:text="${member.city}">  </td>
                     <td th:text="${member.gender}">  </td>
-                    <td th:text="${member.birth_date}" >  </td>
-                    <td th:text="${member.birth_place}" >  </td>
-                    <td th:text="${member.death_date}" >  </td>
+                    <td th:text="${member.birthDate}" >  </td>
+                    <td th:text="${member.birthPlace}" >  </td>
+                    <td th:text="${member.deathDate}" >  </td>
                     <td th:text="${member.created}" >  </td>
                     <td>
                         <a href="#" th:href="@{/family_members/edit/{id}(id=${member.id})}" class="btn btn-info">Mód.</a>

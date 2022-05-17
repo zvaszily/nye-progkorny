@@ -1,13 +1,20 @@
 package hu.nye.nyeprogkorny.model.domain;
 
-import lombok.*;
-
+import java.sql.Timestamp;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.sql.Timestamp;
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+/**
+ * Entity for FamilyMember.
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,34 +24,29 @@ import java.util.Date;
 @Entity
 public class FamilyMember {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+  @Id
+  @GeneratedValue
+  private Long id;
 
-    private Long user_id;
+  private Long userId;
 
-    private String first_name;
+  private String firstName;
 
-    private String last_name;
+  private String lastName;
 
-    private String member_image;
+  private String memberImage;
 
-    private String city;
+  private String city;
 
-    private String gender;
+  private String gender;
 
-    private Date birth_date;
+  private Date birthDate;
 
-    private String birth_place;
+  private String birthPlace;
 
-    private Date death_date;
-    @GeneratedValue
-    private Timestamp created;
-
-
-
-
-
+  private Date deathDate;
+  @GeneratedValue
+  private Timestamp created;
 
 
 }

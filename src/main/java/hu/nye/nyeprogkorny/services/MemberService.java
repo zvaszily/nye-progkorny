@@ -1,16 +1,17 @@
 package hu.nye.nyeprogkorny.services;
 
 import hu.nye.nyeprogkorny.model.domain.FamilyMember;
-
 import java.util.List;
-import java.util.Set;
 
+/**
+ * Service interface for FamilyMember.
+ */
 public interface MemberService {
-    //Set<FamilyMember> getMembers();
-    List<FamilyMember> getMembers();
 
-    FamilyMember saveFamilyMember(FamilyMember familyMember);
+  List<FamilyMember> getMembers();
 
-    FamilyMember getFamilyMember(Long id);
+  FamilyMember saveFamilyMember(FamilyMember familyMember);
+
+  FamilyMember getFamilyMember(Long id);
 
 }
