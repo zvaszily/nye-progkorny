@@ -9,6 +9,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,6 +65,17 @@ public class FamilyMemberController {
     model.addAttribute("familyMember", savedFamilyMember);
     return "redirect:/family_members/list.html";
   }
+
+  /**
+   * Delete FamilyMember.
+   */
+  @GetMapping("/delete/{id}")
+  public String deleteFamilyMember(final Model model, @PathVariable Long id) {
+    memberService.deleteFamilyMemberById(id);
+    model.addAttribute("members", memberService.getMembers());
+    return "redirect:/family_members/list.html";
+  }
+
 
   @InitBinder
   public void initBinder(WebDataBinder binder) {

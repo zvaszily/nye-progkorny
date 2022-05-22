@@ -36,5 +36,9 @@ public class MemberServiceImpl implements MemberService {
     return familyMember;
   }
 
+  @Override
+  public void deleteFamilyMemberById(Long id) {
+    familyMemberRepository.deleteById(id);
+  }
 
 }

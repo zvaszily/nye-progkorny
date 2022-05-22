@@ -14,4 +14,6 @@ public interface MemberService {
 
   FamilyMember getFamilyMember(Long id);
 
+  void deleteFamilyMemberById(Long id);
+
 }
