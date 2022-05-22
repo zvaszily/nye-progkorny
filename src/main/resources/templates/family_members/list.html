@@ -9,6 +9,9 @@
     <link rel="stylesheet"
           th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
     <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div th:insert="~{shared/navBar :: navbar}"></div>
@@ -42,28 +45,28 @@
                 <tbody>
                 <tr th:each="member : ${members}">
                     <th scope="row" th:text="${member.id}" >  </th>
-                    <td th:text="${member.user_id}">  </td>
-                    <td th:text="${member.first_name}">  </td>
-                    <td th:text="${member.last_name}" >  </td>
+                    <td th:text="${member.userId}">  </td>
+                    <td th:text="${member.firstName}">  </td>
+                    <td th:text="${member.lastName}" >  </td>
                     <td> <img src="" style="height:40px;"> </td>
                     <td th:text="${member.city}">  </td>
                     <td th:text="${member.gender}">  </td>
-                    <td th:text="${member.birth_date}" >  </td>
-                    <td th:text="${member.birth_place}" >  </td>
-                    <td th:text="${member.death_date}" >  </td>
+                    <td th:text="${member.birthDate}" >  </td>
+                    <td th:text="${member.birthPlace}" >  </td>
+                    <td th:text="${member.deathDate}" >  </td>
                     <td th:text="${member.created}" >  </td>
                     <td>
                         <a href="#" th:href="@{/family_members/edit/{id}(id=${member.id})}" class="btn btn-info">Mód.</a>
                         <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Kapcsolatok</button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{{ url('relationship/add_parent/'.$member->id) }}">Szülő hozáadása</a></li>
-                            <li><a class="dropdown-item" href="{{ url('relationship/add_children/'.$member->id) }}">Gyerek hozzáadása</a></li>
+                            <li><a class="dropdown-item" href="">Szülő hozáadása</a></li>
+                            <li><a class="dropdown-item" href="">Gyerek hozzáadása</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
 
                         </ul>
-                        <a href="{{ url('softdelete/familymember/'.$member->id) }}" class="btn btn-danger">Töröl</a>
+                        <a href="#" th:href="@{/family_members/delete/{id}(id=${member.id})}" class="btn btn-danger">Töröl</a>
                     </td>
 
                 </tr>

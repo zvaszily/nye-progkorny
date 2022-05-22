@@ -4,12 +4,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Controller for index.
+ */
 @Controller
 public class IndexController {
 
-    @RequestMapping({ "" , "/" , "index" })
-    public String getIndexPage(Model model) {
-        model.addAttribute("pageTitle" , "Kép galéria");
-        return "index";
-    }
+  @RequestMapping({"", "/", "index"})
+  public String getIndexPage(Model model) {
+    model.addAttribute("pageTitle", "Kép galéria");
+    return "index";
+  }
 }
