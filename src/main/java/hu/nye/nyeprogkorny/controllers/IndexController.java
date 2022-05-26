@@ -12,7 +12,7 @@ public class IndexController {
 
   @RequestMapping({"", "/", "index"})
   public String getIndexPage(Model model) {
-    model.addAttribute("pageTitle", "Kép galéria");
+    model.addAttribute("pageTitle", "Családfa");
     return "index";
   }
 }
