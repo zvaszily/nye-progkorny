@@ -27,13 +27,7 @@
                                id="validationDefault01" required
                                th:value="${familyMember.firstName}"/>
                     </div>
-                    <div class="col-md-3 mb-2">
-                        <label for="validationDefault11">Vezetéknév</label>
-                        <input type="hidden" name="id"
-                               class="form-control"
-                               id="validationDefault11" required
-                               th:value="${familyMember.id}"/>
-                    </div>
+
                     <div class="col-md-3 mb-2">
                         <label for="validationDefault02">Keresztnév</label>
                         <input type="text" name="lastName"
@@ -41,19 +35,26 @@
                                id="validationDefault02" required
                                th:value="${familyMember.lastName}"/>
                     </div>
-                    <div class="col-md-3 mb-2">
+                    <div class="col-md-2 mb-2">
                         <label for="validationDefault03">Születési dátum</label>
                         <input type="date" name="birthDate"
                                class="form-control"
                                id="validationDefault03" required
                                th:field="${familyMember.birthDate}"/>
                     </div>
+
                     <div class="col-md-3 mb-2">
                         <label for="validationDefault04">Születési hely</label>
                         <input type="text" name="birthPlace"
                                class="form-control"
                                id="validationDefault04" required
                                th:value="${familyMember.birthPlace}"/>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="hidden" name="id"
+                               class="form-control"
+                               id="validationDefault11" required
+                               th:value="${familyMember.id}"/>
                     </div>
                 </div>
                 <div class="mb-3 row">
